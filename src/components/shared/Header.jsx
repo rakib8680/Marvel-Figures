@@ -5,7 +5,7 @@ import logo from '../../assets/logo.jpg'
 const Header = () => {
     const user = { name: 'john' };
     return (
-        <div className="navbar bg-secondary mb-8 py-10 md:py-4  md:px-10">
+        <div className="navbar bg-secondary py-10 md:py-4  md:px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,7 +44,8 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <Link to='/'>Home</Link>
+                    <NavLink to='/' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Home</NavLink>
+
                     </li>
                     <li>
                         <NavLink to='/allToys' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>All Toys</NavLink>
