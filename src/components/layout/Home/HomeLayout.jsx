@@ -1,11 +1,13 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../../shared/Header';
 import Home from './Home';
 
 const HomeLayout = () => {
     return (
         <div>
-            
-            <Home></Home>
+            <Header></Header>
+            <Outlet></Outlet>
 
         </div>
     );
