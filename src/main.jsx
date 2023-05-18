@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ErrorPage from './components/ErrorPage.jsx'
 import Home from './components/layout/Home/Home.jsx'
 import HomeLayout from './components/layout/Home/HomeLayout.jsx'
 import Login from './components/Login.jsx'
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout></HomeLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
- <AuthProvider>
-   <RouterProvider router={router} />
- </AuthProvider>
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 )
