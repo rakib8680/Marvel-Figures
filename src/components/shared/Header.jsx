@@ -5,7 +5,7 @@ import logo from '../../assets/logo.jpg'
 const Header = () => {
     const user = { name: 'john' };
     return (
-        <div className="navbar bg-secondary mb-8 py-4  md:px-10">
+        <div className="navbar bg-secondary mb-8 py-10 md:py-4  md:px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -15,30 +15,30 @@ const Header = () => {
                         <li>
                             <Link to='/'>Home</Link>
                         </li>
-                        <li tabIndex={0}>
-                            <Link className="justify-between">
-                                About
-                            </Link>
+                        <li>
+                            <NavLink to='/allToys' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>All Toys</NavLink>
                         </li>
                         <li>
-                            <Link>Services</Link>
+                            <NavLink to='/blog' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Blogs</NavLink>
+
                         </li>
                         {user?.email ?
                             <li>
-                                <Link to='/bookings' className='btn btn-ghost'>My Bookings</Link>
-                                <button className='btn btn-error' >Log Out</button>
+                                <Link>Add a Toy</Link>
+                                <Link>My toys</Link>
                             </li>
                             :
                             <li>
-                                <Link to='/login'>Login</Link>
-                                <Link to='/register'>Register</Link>
+                                <NavLink to='/login' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Login</NavLink>
+                                <NavLink to='/register' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Register</NavLink>
+
                             </li>
                         }
                     </ul>
                 </div>
                 <Link to="/" className="flex items-center">
-                    <img src={logo} className="w-16 h-16 rounded-full" />
-                    <h1 className='font-black md:ms-5 md:text-2xl md:leading-6'>Marvel <br /> Figures</h1>
+                    <img src={logo} className="md:w-16 md:h-16 w-12 h-12 rounded-full" />
+                    <h1 className='font-black md:ms-5 md:text-2xl md:leading-6 '>Marvel <br /> Figures</h1>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex ">
@@ -48,11 +48,10 @@ const Header = () => {
                     </li>
                     <li>
                         <NavLink to='/allToys' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>All Toys</NavLink>
-
-
                     </li>
                     <li>
-                        <Link>Blogs</Link>
+                        <NavLink to='/blog' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Blogs</NavLink>
+
                     </li>
                     {user?.email ?
                         <li>

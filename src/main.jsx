@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import AllToys from './components/allToys/AllToys.jsx'
+import Blog from './components/Blog.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Home from './components/layout/Home/Home.jsx'
 import HomeLayout from './components/layout/Home/HomeLayout.jsx'
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register></Register>
+      },
+      {
+        path: 'blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: 'allToys',
+        element : <AllToys></AllToys>
       }
     ]
   }
