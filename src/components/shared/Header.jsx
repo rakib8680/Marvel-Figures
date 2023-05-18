@@ -47,18 +47,17 @@ const Header = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li>
-                        <a href='#about' className="justify-between">
-                            About
-                        </a>
+                        <NavLink to='/allToys' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>All Toys</NavLink>
+
 
                     </li>
                     <li>
-                        <Link>Services</Link>
+                        <Link>Blogs</Link>
                     </li>
                     {user?.email ?
                         <li>
-                            <Link to='/bookings' className='btn btn-ghost'>My Bookings</Link>
-                            <button className='btn btn-error ' >Log Out</button>
+                            <Link>Add a Toy</Link>
+                            <Link>My toys</Link>
                         </li>
                         :
                         <li>
@@ -70,7 +69,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn  btn-outline btn-primary duration-200 btn-sm md:btn-md">Get started</a>
+                <a className="btn  btn-outline btn-neutral duration-200 btn-sm md:btn-md">Get started</a>
             </div>
         </div>
     );
