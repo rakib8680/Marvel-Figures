@@ -50,7 +50,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/" className="flex md:flex-row flex-col items-center  ml-16 md:ml-0">
-                    <img src={logo} className="md:w-16 md:h-16 w-16 h-16 ms-3 md:ms-0 rounded-full" />
+                    <img src={logo} className="md:w-16 md:h-16 w-16 h-16     ms-3 md:ms-0 rounded-full" />
                     <h1 className='font-black md:ms-5 md:text-2xl md:leading-6 leading-6 ms-3 text-xl'>Marvel <br /> Figures</h1>
                 </Link>
             </div>
