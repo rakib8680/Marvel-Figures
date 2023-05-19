@@ -1,19 +1,75 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaTwitter, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
+import { GridLoader } from 'react-spinners';
+import { AuthContext } from '../provider/AuthProvider';
 import './Register.css'
 
 
 const Register = () => {
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <div className='flex justify-center h-[80vh] items-center bg-primary'><GridLoader color="#e3ed4c" size={60} /></div>
+    }
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    // context api 
+    const { handleGoogleSignIn, handleGithubSignIn, registerUser, updateUser, loading } = useContext(AuthContext)
     // success  
     const [success, setSuccess] = useState('')
     // error 
     const [error, setError] = useState('')
 
 
+    // form submit  
+    const handleRegistration = event => {
+        event.preventDefault()
+        const form = event.target
+        const email = form.email.value
+        const password = form.password.value
+        const name = form.name.value
+        const photo = form.photo.value
+
+
+
+        // // password validation 
+        setError('')
+        setSuccess('')
+
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('!! Please provide one upperCase word')
+            return
+        }
+        else if (!/(?=.*[0-9])/.test(password)) {
+            setError('!! Please provide at least one number')
+            return
+        }
+        else if (password.length < 6) {
+            setError('!! Password must be 6 characters or above')
+            return
+        }
+
+        // register new user 
+        registerUser(email, password)
+            .then((result) => {
+                setSuccess('Account registered successfully')
+                updateUser(result.user, name, photo)
+                navigate(location?.state?.from.pathname || '/')
+            })
+            .catch(error => setError(error.message))
+
+
+        form.reset()
+
+
+    }
+
+
+
     return (
         <div className="flex justify-center items-center h-screen register-bg p-2 md:p-0">
-            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 space-y-6  bg-white bg-opacity-10">
+            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 space-y-6  bg-white bg-opacity-10" onSubmit={handleRegistration}>
                 <div className="mb-4">
                     <label className="block   font-bold mb-2 text-2xl" htmlFor="name">
                         Name
@@ -67,14 +123,14 @@ const Register = () => {
                 </div>
                 <div className="flex items-center justify-between">
                     <button
-                        className="btn bg-red-950"
+                        className="btn bg-red-950 border border-red-800"
 
                     >
                         Sign Up
                     </button>
                 </div>
                 <p className='text-green-500 '>{success}</p>
-                <p className='text-red-400 t'>{error}</p>
+                <p className='text-red-300'>{error}</p>
                 <div className='text-center text-sm mt-5'>
                     <div className="divider">OR</div>
                     <h2>SignUp With</h2>

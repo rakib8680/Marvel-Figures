@@ -37,37 +37,38 @@ const AuthProvider = ({ children }) => {
 
 
     // // register with email and pass 
-    // const registerUser = (email, password) => {
-    //     setLoading(true);
-    //     console.log(loading);
-    //     return createUserWithEmailAndPassword(auth, email, password)
-    // };
+    const registerUser = (email, password) => {
+        setLoading(true);
+        console.log(loading);
+        return createUserWithEmailAndPassword(auth, email, password)
+    };
 
 
     // // sign in with email and pass
-    // const signInUser = (email, password) => {
-    //     setLoading(true);
-    //     return signInWithEmailAndPassword(auth, email, password)
-    // };
+    const signInUser = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password)
+    };
 
 
     // // update profile 
-    // const updateUser = (user, name, photo) => {
-    //     return updateProfile(user, {
-    //         displayName: name,
-    //         photoURL: photo
-    //     })
-    // }
+    const updateUser = (user, name, photo) => {
+        return updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+    }
 
     // // sign out 
-    // const logOut = () => {
-    //     setLoading(true);
-    //     return signOut(auth)
-    // }
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth)
+    }
 
     // set current user 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            console.log(currentUser);
             setUser(currentUser)
             setLoading(false)
         })
@@ -80,11 +81,11 @@ const AuthProvider = ({ children }) => {
         user,
         handleGoogleSignIn,
         // handleGithubSignIn,
-        // logOut,
-        // registerUser,
-        // signInUser,
+        logOut,
+        registerUser,
+        signInUser,
         loading,
-        // updateUser,
+        updateUser,
     }
 
     return (
