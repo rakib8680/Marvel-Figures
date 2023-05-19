@@ -13,7 +13,7 @@ const Blog = () => {
     return (
         <div>
             <div className='background !h-auto md:py-20' >
-                <div className=' backdrop-blur-md container mx-auto bg-white bg-opacity-10 w-[750px] px-10  py-20' >
+                <div className=' backdrop-blur-md container mx-auto bg-white bg-opacity-10 md:w-[750px] px-10  py-20' >
                     <h1 className='text-5xl font-bold mb-5'>Latest Blogs</h1>
                     <div className='divider'></div>
                     <div className='mb-7'>
@@ -29,8 +29,8 @@ const Blog = () => {
                         <p>Express js is a fast , flexible , easy and simple framework for node js. Express js handles HTTP methods like- GET, POST, PUT , DELETE etc. It follows a middleware pattern. <br /> Nest js is also a popular web application framework for node js. Nest js is built with TypeScript. Nest js provides module system that helps organize codes into reusable modules.Nest js also use middleWare like Express js.</p>
                     </div>
                     <div >
-                        <h1 className='text-2xl mb-2 font-medium text-warning'>4. What is a custom hook, and why will you create a custom hook?</h1>
-                        <p>Custom React JS hooks offer reusability as when a custom hook is created, it can be reused easily, which makes the code cleaner and reduces the time to write the code. It also enhances the rendering speed of the code as a custom hook does not need to be rendered again and again while rendering the whole code.</p>
+                        <h1 className='text-2xl mb-2 font-medium text-warning'>4. What is MongoDB aggregate and how does it work?</h1>
+                        <p>MongoDB's aggregation framework allows us to do advance data processing and operations on the data that we stored in a MongoDB database. It allows us to transform data, perform calculations, apply filters, group data and perform various operations.</p>
                     </div>
                 </div>
             </div>
