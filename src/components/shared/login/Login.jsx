@@ -1,19 +1,49 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 import './Login.css'
 
 
 const Login = () => {
+
+    // context api 
+    const { signInUser,user } = useContext(AuthContext)
     // success  
     const [success, setSuccess] = useState('')
     // error 
     const [error, setError] = useState('')
 
 
+
+    // sign in with email and pass 
+    const handleSignIn = event => {
+        event.preventDefault();
+        setSuccess(' ')
+        setError(' ')
+
+        if(user?.email){
+            toast.error('User already logged in')
+            return
+        }
+
+        const form = event.target
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signInUser(email, password)
+            .then(() => {
+                toast.success('Logged in successfully');
+                setSuccess('Login successfully')
+                navigate(location?.state?.from.pathname || '/')
+            })
+            .catch(error => setError('Wrong email or password'));
+    }
+
     return (
         <div className="flex justify-center items-center h-screen login-bg p-2 md:p-0">
-            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
+            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 pb-5 space-y-6  bg-white bg-opacity-10 " onSubmit={handleSignIn}>
                 <h2 className='text-center text-2xl font-bold '>Please Login</h2>
                 <div className='divider'></div>
                 <div className="mb-4">
@@ -50,8 +80,8 @@ const Login = () => {
                         Sign In
                     </button>
                 </div>
-                <p className='text-green-500 '>{success}</p>
-                <p className='text-red-400 t'>{error}</p>
+                <p className='text-green-400 '>{success}</p>
+                <p className='text-red-300 t'>{error}</p>
                 <div className='text-center text-sm mt-5'>
                     <div className="divider">OR</div>
                     <h2>Login With</h2>
@@ -63,7 +93,7 @@ const Login = () => {
                 </div>
                 <h2 className='text-sm pb-6 text-center mt-6'>Don't have an account ? <Link to="/register" className='text-warning font-medium'>Register</Link></h2>
             </form>
-
+            <Toaster />
         </div>
     );
 };

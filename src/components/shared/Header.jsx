@@ -2,10 +2,20 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.jpg'
 import { AuthContext } from '../provider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logged Out successfully');
+            })
+            .catch(err => console.log(err.message))
+
+    }
 
     return (
         <div className="navbar bg-secondary py-10 md:py-4  md:px-10">
@@ -81,11 +91,13 @@ const Header = () => {
                                 <img src={user?.photoURL} />
                             </div>
                         </div>
-                        <button className='btn btn-outline btn-error btn-sm'>Log Out</button>
+                        <button className='btn btn-outline btn-error btn-sm' onClick={handleSignOut}>Log Out</button>
                     </>
                 }
             </div>
+            <Toaster />
         </div>
+
     );
 };
 
