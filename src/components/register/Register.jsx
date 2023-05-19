@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { FaGithub, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
@@ -20,6 +21,20 @@ const Register = () => {
     const [success, setSuccess] = useState('')
     // error 
     const [error, setError] = useState('')
+
+
+    // Register with google 
+    const googleSignIn = () => {
+        setSuccess('')
+        setError('')
+        handleGoogleSignIn()
+            .then(() => {
+                setSuccess('Account registered successfully')
+                toast.success('Successfully registered')
+                navigate(location?.state?.from.pathname || '/')
+            })
+            .catch(error => setError(error.message))
+    };
 
 
     // form submit  
@@ -55,6 +70,7 @@ const Register = () => {
             .then((result) => {
                 setSuccess('Account registered successfully')
                 updateUser(result.user, name, photo)
+                toast.success('Successfully registered')
                 navigate(location?.state?.from.pathname || '/')
             })
             .catch(error => setError(error.message))
@@ -137,12 +153,12 @@ const Register = () => {
                 </div>
                 <div className=' mt-5 flex gap-5  justify-around'>
                     <div className="btn btn-circle btn-neutral  cursor-not-allowed"><FaGithub className='w-[20px] h-[20px]' /></div>
-                    <div className="btn btn-circle btn-neutral" ><FaGoogle className='w-[20px] h-[20px]' /></div>
+                    <div className="btn btn-circle btn-neutral" onClick={googleSignIn}><FaGoogle className='w-[20px] h-[20px]' /></div>
                     <div className="btn btn-circle btn-neutral cursor-not-allowed"><FaTwitter className='w-[20px] h-[20px]' /></div>
                 </div>
                 <h2 className='text-sm pb-6 text-center mt-6'>Already have an account ? <Link to="/login" className='text-warning'>Login here</Link></h2>
             </form>
-
+            <Toaster />
         </div>
     );
 };

@@ -1,20 +1,40 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaTwitter, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import './Login.css'
+import { GridLoader } from 'react-spinners';
 
 
 const Login = () => {
 
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <div className='flex justify-center h-[80vh] items-center bg-primary'><GridLoader color="#e3ed4c" size={60} /></div>
+    }
+    const navigate = useNavigate()
+    const location = useLocation()
     // context api 
-    const { signInUser,user } = useContext(AuthContext)
+    const { signInUser, user, handleGoogleSignIn } = useContext(AuthContext)
     // success  
     const [success, setSuccess] = useState('')
     // error 
     const [error, setError] = useState('')
 
+
+     // login with google 
+     const googleSignIn = () => {
+        setSuccess('')
+        setError('')
+        handleGoogleSignIn()
+            .then(() => {
+                setSuccess('Logged In successfully')
+                toast.success('Logged In Successfully')
+                navigate(location?.state?.from.pathname || '/')
+            })
+            .catch(error => setError(error.message))
+    };
 
 
     // sign in with email and pass 
@@ -23,7 +43,7 @@ const Login = () => {
         setSuccess(' ')
         setError(' ')
 
-        if(user?.email){
+        if (user?.email) {
             toast.error('User already logged in')
             return
         }
@@ -88,7 +108,7 @@ const Login = () => {
                 </div>
                 <div className=' mt-5 flex gap-5  justify-around'>
                     <div className="btn btn-circle btn-neutral  cursor-not-allowed"><FaGithub className='w-[20px] h-[20px]' /></div>
-                    <div className="btn btn-circle btn-neutral" ><FaGoogle className='w-[20px] h-[20px]' /></div>
+                    <div className="btn btn-circle btn-neutral" onClick={googleSignIn}><FaGoogle className='w-[20px] h-[20px]' /></div>
                     <div className="btn btn-circle btn-neutral cursor-not-allowed"><FaTwitter className='w-[20px] h-[20px]' /></div>
                 </div>
                 <h2 className='text-sm pb-6 text-center mt-6'>Don't have an account ? <Link to="/register" className='text-warning font-medium'>Register</Link></h2>
