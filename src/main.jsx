@@ -6,9 +6,9 @@ import Blog from './components/Blog.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Home from './components/layout/Home/Home.jsx'
 import HomeLayout from './components/layout/Home/HomeLayout.jsx'
-import Login from './components/Login.jsx'
+import Login from './components/shared/login/Login.jsx'
 import AuthProvider from './components/provider/AuthProvider.jsx'
-import Register from './components/Register.jsx'
+import Register from './components/register/Register.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
