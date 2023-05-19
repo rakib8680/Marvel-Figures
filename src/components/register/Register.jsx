@@ -84,14 +84,14 @@ const Register = () => {
 
 
     return (
-        <div className="flex justify-center items-center h-screen register-bg p-2 md:p-0">
-            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 space-y-6  bg-white bg-opacity-10" onSubmit={handleRegistration}>
+        <div className="flex justify-center items-center h-screen register-bg p-2 md:p-0 my-5 md:my-0">
+            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-7 pb-5 md:py-12  md:space-y-6  bg-white bg-opacity-10" onSubmit={handleRegistration}>
                 <div className="mb-4">
                     <label className="block   font-bold mb-2 text-2xl" htmlFor="name">
                         Name
                     </label>
                     <input
-                        className="shadow  border rounded py-2 px-3 md:w-[400px] w-full text-primary leading-tight bg-red-900"
+                        className="shadow  border rounded py-2 px-3 md:w-[400px] w-[287px] text-primary leading-tight bg-red-900"
                         id="name"
                         type="text"
                         name='name'
