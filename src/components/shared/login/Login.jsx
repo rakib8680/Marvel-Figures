@@ -13,7 +13,9 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center h-screen login-bg p-2 md:p-0">
-            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 space-y-6  bg-white bg-opacity-5 ">
+            <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14 pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
+                <h2 className='text-center text-2xl font-bold '>Please Login</h2>
+                <div className='divider'></div>
                 <div className="mb-4">
                     <label className="block   font-bold mb-2 text-2xl" htmlFor="email">
                         Email
