@@ -18,11 +18,11 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar bg-secondary py-10 md:py-4  md:px-10">
+        <div className="navbar bg-secondary py-7 md:py-4  md:px-10 p-0 pr-2">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden ">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow backdrop-blur-md bg-secondary  bg-opacity-80 rounded-box w-52 ">
                         <li>
@@ -49,9 +49,9 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <Link to="/" className="flex items-center">
-                    <img src={logo} className="md:w-16 md:h-16 w-12 h-12 rounded-full" />
-                    <h1 className='font-black md:ms-5 md:text-2xl md:leading-6 '>Marvel <br /> Figures</h1>
+                <Link to="/" className="flex md:flex-row flex-col items-center  ml-16 md:ml-0">
+                    <img src={logo} className="md:w-16 md:h-16 w-16 h-16 ms-3 md:ms-0 rounded-full" />
+                    <h1 className='font-black md:ms-5 md:text-2xl md:leading-6 leading-6 ms-3 text-xl'>Marvel <br /> Figures</h1>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex ">
@@ -85,14 +85,14 @@ const Header = () => {
             <div className='navbar-end'>
                 {
                     user?.email &&
-                    <>
-                        <div className="avatar mr-5 tooltip tooltip-left tooltip-neutral" data-tip={user?.displayName}>
-                            <div className="w-11 rounded-full ring">
+                    <div className='flex items-center md:flex-row flex-col gap-2'>
+                        <div className="avatar md:mr-5  mr-3 tooltip tooltip-left tooltip-neutral" data-tip={user?.displayName}>
+                            <div className="md:w-11 w-8 rounded-full ring ms-2 md:ms-0">
                                 <img src={user?.photoURL} />
                             </div>
                         </div>
-                        <button className='btn btn-outline btn-error btn-sm' onClick={handleSignOut}>Log Out</button>
-                    </>
+                        <button className='btn btn-outline btn-error btn-xs md:btn-sm ' onClick={handleSignOut}>Log Out</button>
+                    </div>
                 }
             </div>
             <Toaster />
