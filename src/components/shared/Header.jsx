@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.jpg'
+import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
-    const user = { name: 'john' };
+
+    const { user } = useContext(AuthContext)
+
     return (
         <div className="navbar bg-secondary py-10 md:py-4  md:px-10">
             <div className="navbar-start">
@@ -24,8 +27,8 @@ const Header = () => {
                         </li>
                         {user?.email ?
                             <li>
-                                <Link>Add a Toy</Link>
-                                <Link>My toys</Link>
+                                <NavLink className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Add a Toy</NavLink>
+                                <NavLink className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>My Toys</NavLink>
                             </li>
                             :
                             <li>
@@ -44,20 +47,17 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                    <NavLink to='/' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Home</NavLink>
+                        <NavLink to='/' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Home</NavLink>
 
                     </li>
                     <li>
                         <NavLink to='/allToys' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>All Toys</NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/blog' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Blogs</NavLink>
 
-                    </li>
                     {user?.email ?
                         <li>
-                            <Link>Add a Toy</Link>
-                            <Link>My toys</Link>
+                            <NavLink to='/addToy' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Add a Toy</NavLink>
+                            <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>My Toys</NavLink>
                         </li>
                         :
                         <li>
@@ -66,10 +66,24 @@ const Header = () => {
 
                         </li>
                     }
+                    <li>
+                        <NavLink to='/blog' className={({ isActive }) => (isActive ? 'font-semibold text-primary' : 'default')}>Blogs</NavLink>
+
+                    </li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn  btn-outline btn-neutral duration-200 btn-sm md:btn-md">Get started</a>
+            <div className='navbar-end'>
+                {
+                    user?.email &&
+                    <>
+                        <div className="avatar mr-5 tooltip tooltip-left tooltip-neutral" data-tip={user?.displayName}>
+                            <div className="w-11 rounded-full ring">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <button className='btn btn-outline btn-error btn-sm'>Log Out</button>
+                    </>
+                }
             </div>
         </div>
     );
