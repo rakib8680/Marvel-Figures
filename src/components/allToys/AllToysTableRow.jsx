@@ -29,10 +29,10 @@ const AllToysTableRow = ({ toys, index }) => {
             </td>
             <td>{subCategory}</td>
             <td>
-                {price}
+                ${price}
             </td>
             <td>
-                {quantity}
+                {quantity}pc
             </td>
             <td>
                 <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm'><FaEye /></Link>
