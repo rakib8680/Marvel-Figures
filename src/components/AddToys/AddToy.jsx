@@ -10,11 +10,13 @@ const AddToy = () => {
     const onSubmit = data => console.log(data);
 
     return (
-        <div className='flex justify-center items-center md:h-screen login-bg  md:p-0'>
+        <div className='flex justify-center items-center md:h-screen login-bg  md:p-0 pt-[565px] pb-[560px] md:pb-0 md:pt-0'>
             <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
                 {errors.exampleRequired && <span>This field is required</span>}
-                <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                <h1 className='text-center text-2xl font-semibold'>Add a Toy</h1>
+                <div className='divider w-1/3 mx-auto'></div>
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Toy picture
                     </label>
                     <input
@@ -25,8 +27,8 @@ const AddToy = () => {
                     />
                 </div>
 
-                <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Toy Name
                     </label>
                     <input
@@ -37,7 +39,7 @@ const AddToy = () => {
                 </div>
 
                 <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Toy Category
                     </label>
                     <select className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900" {...register("subCategory", { required: true })}>
@@ -50,8 +52,8 @@ const AddToy = () => {
 
                 <br />
 
-                <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Seller Name
                     </label>
                     <input
@@ -63,8 +65,8 @@ const AddToy = () => {
                     />
                 </div>
 
-                <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Seller Email
                     </label>
                     <input
@@ -77,7 +79,7 @@ const AddToy = () => {
                 </div>
 
                 <div className='inline-flex flex-col'>
-                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Price
                     </label>
                     <input
@@ -87,27 +89,49 @@ const AddToy = () => {
                         type="text"
                     />
                 </div>
-                <br />
-                <input
-                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                    {...register("rating", { required: true })}
-                    placeholder="Rating"
-                    type="text"
-                />
-                <input
-                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                    {...register("quantity", { required: true })}
-                    placeholder="Available Quantity"
-                    type="text"
-                />
 
-                <input
-                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                    {...register("description")}
-                    placeholder="description"
-                />
+
                 <br />
-                <div className='text-center'>
+
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
+                        Ratings
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("rating", { required: true })}
+                        placeholder="Rating"
+                        type="text"
+                    />
+                </div>
+
+                <div className='inline-flex flex-col md:mr-5'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
+                        Quantity
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("quantity", { required: true })}
+                        placeholder="Available Quantity"
+                        type="text"
+                    />
+                </div>
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
+                        Descriptions
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("description")}
+                        placeholder="description"
+                    />
+                </div>
+
+                <br />
+
+
+                <div className='text-center py-5'>
                     <input className="btn " value="Post Job" type="submit" />
                 </div>
             </form>
