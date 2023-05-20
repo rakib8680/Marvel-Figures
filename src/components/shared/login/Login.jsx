@@ -62,7 +62,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-center items-center md:h-screen login-bg p-2 md:p-0">
+        <div className="flex justify-center items-center md:h-screen login-bg  md:p-0">
             <form className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 " onSubmit={handleSignIn}>
                 <h2 className='text-center text-2xl font-bold '>Please Login</h2>
                 <div className='divider'></div>
@@ -71,7 +71,7 @@ const Login = () => {
                         Email
                     </label>
                     <input
-                        className="shadow  border rounded py-2 px-3 md:w-[400px] w-[287px] text-primary leading-tight bg-red-900"
+                        className="shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
                         id="email"
                         type="text"
                         name='email'

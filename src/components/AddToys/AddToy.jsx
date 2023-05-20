@@ -1,9 +1,116 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useForm } from "react-hook-form";
+import { AuthContext } from '../provider/AuthProvider';
+
 
 const AddToy = () => {
+
+    const { user } = useContext(AuthContext)
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+
     return (
-        <div>
-            add toys
+        <div className='flex justify-center items-center md:h-screen login-bg  md:p-0'>
+            <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
+                {errors.exampleRequired && <span>This field is required</span>}
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Toy picture
+                    </label>
+                    <input
+                        className="shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("pictureURL")}
+                        placeholder="Picture-URL"
+                        type='url'
+                    />
+                </div>
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Toy Name
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("name", { required: true })}
+                        placeholder="Toy Name"
+                    />
+                </div>
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Toy Category
+                    </label>
+                    <select className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900" {...register("subCategory", { required: true })}>
+                        <option value="avengers">avengers</option>
+                        <option value="guardians">guardians</option>
+                        <option value="fantasticFour">fantasticFour</option>
+                    </select>
+                </div>
+
+
+                <br />
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Seller Name
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        value={user?.displayName}
+                        {...register("sellerName", { required: true })}
+                        placeholder="seller name"
+                        type="text"
+                    />
+                </div>
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Seller Email
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        value={user?.email}
+                        {...register("sellerEmail")}
+                        placeholder="seller email"
+                        type="email"
+                    />
+                </div>
+
+                <div className='inline-flex flex-col'>
+                    <label className=" font-bold mb-1 text-xl" htmlFor="email">
+                        Price
+                    </label>
+                    <input
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        {...register("price")}
+                        placeholder="Price"
+                        type="text"
+                    />
+                </div>
+                <br />
+                <input
+                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                    {...register("rating", { required: true })}
+                    placeholder="Rating"
+                    type="text"
+                />
+                <input
+                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                    {...register("quantity", { required: true })}
+                    placeholder="Available Quantity"
+                    type="text"
+                />
+
+                <input
+                    className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                    {...register("description")}
+                    placeholder="description"
+                />
+                <br />
+                <div className='text-center'>
+                    <input className="btn " value="Post Job" type="submit" />
+                </div>
+            </form>
         </div>
     );
 };
