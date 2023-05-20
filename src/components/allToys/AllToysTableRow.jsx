@@ -35,7 +35,7 @@ const AllToysTableRow = ({ toys, index }) => {
                 {quantity}pc
             </td>
             <td>
-                <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm'><FaEye /></Link>
+                <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm tooltip-left tooltip flex tooltip-success'  data-tip="View Details"><FaEye /></Link>
             </td>
         </tr>
     );

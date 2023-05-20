@@ -17,6 +17,7 @@ const SingleToy = () => {
                 <div className="card-body">
                     <h2 className="card-title text-3xl font-bold ">{name}</h2>
                     <div className='divider'></div>
+                    <p>Sub-Category : {subCategory}</p>
                     <p>Seller : {sellerName}</p>
                     <p>Email : {sellerEmail}</p>
                     <p>Price : ${price}</p>

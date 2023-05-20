@@ -149,7 +149,7 @@ const AddToy = () => {
 
 
                 <div className='text-center py-5'>
-                    <input className="btn " value="Post Job" type="submit" />
+                    <input className="btn " value="Add Toy" type="submit" />
                 </div>
             </form>
             <Toaster />
