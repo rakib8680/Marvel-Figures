@@ -7,11 +7,25 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data);
+
+        // post to db
+        fetch('http://localhost:5000/allToys', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data)
+                
+            })
+    };
 
     return (
         <div className='flex justify-center items-center md:h-screen login-bg  md:p-0 pt-[565px] pb-[560px] md:pb-0 md:pt-0'>
-            <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-xl  shadow-2xl rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
+            <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-xl  shadow-2xl md:rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
                 {errors.exampleRequired && <span>This field is required</span>}
                 <h1 className='text-center text-2xl font-semibold'>Add a Toy</h1>
                 <div className='divider w-1/3 mx-auto'></div>
@@ -58,10 +72,10 @@ const AddToy = () => {
                     </label>
                     <input
                         className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                        value={user?.displayName}
                         {...register("sellerName", { required: true })}
                         placeholder="seller name"
                         type="text"
+                        defaultValue={user?.displayName}
                     />
                 </div>
 
@@ -71,10 +85,10 @@ const AddToy = () => {
                     </label>
                     <input
                         className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                        value={user?.email}
                         {...register("sellerEmail")}
                         placeholder="seller email"
                         type="email"
+                        defaultValue={user?.email}
                     />
                 </div>
 
