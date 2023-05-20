@@ -6,7 +6,7 @@ const SingleToy = () => {
 
     const toy = useLoaderData()
     console.log(toy);
-    const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, _id, description, rating } = toy || {};
+    const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, description, rating } = toy || {};
 
     return (
         <div className='background pt-20 md:pt-28 mb-96'>

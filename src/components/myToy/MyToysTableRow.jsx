@@ -75,8 +75,8 @@ const MyToysTableRow = ({toy,index, myToys, setMyToys}) => {
             </td>
             <td>
                 <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm tooltip-left tooltip flex tooltip-success' data-tip="View Details"><FaEye /></Link>
-                <Link to={`/allToys/${_id}`} className='btn btn-square btn-info btn-sm tooltip-left tooltip flex tooltip-info my-2' data-tip="Edit Details"><FaPencilRuler /></Link>
-                <button to={`/allToys/${_id}`} className='btn btn-square btn-error btn-sm tooltip-left tooltip flex tooltip-error' data-tip="Delete Toy" onClick={() => handleDelete(_id)}><FaTrash /></button>
+                <Link to={`/editToy/${_id}`} className='btn btn-square btn-info btn-sm tooltip-left tooltip flex tooltip-info my-2' data-tip="Edit Details"><FaPencilRuler /></Link>
+                <button className='btn btn-square btn-error btn-sm tooltip-left tooltip flex tooltip-error' data-tip="Delete Toy" onClick={() => handleDelete(_id)}><FaTrash /></button>
             </td>
         </tr>
     );
