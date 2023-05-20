@@ -13,6 +13,7 @@ import './index.css'
 import AddToy from './components/AddToys/AddToy.jsx'
 import MyToys from './components/myToy/MyToys.jsx'
 import SingleToy from './components/allToys/SingleToy.jsx'
+import PrivateRoute from './components/route/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'myToys',
-        element: <MyToys></MyToys>
+        element: <PrivateRoute>
+          <MyToys></MyToys>
+        </PrivateRoute>
       }
     ]
   }
