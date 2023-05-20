@@ -12,6 +12,7 @@ import Register from './components/register/Register.jsx'
 import './index.css'
 import AddToy from './components/AddToys/AddToy.jsx'
 import MyToys from './components/myToy/MyToys.jsx'
+import SingleToy from './components/allToys/SingleToy.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: 'allToys',
         element: <AllToys></AllToys>
+      },
+      {
+        path: 'allToys/:id',
+        element: <SingleToy></SingleToy>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
       },
       {
         path: 'addToy',

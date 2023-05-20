@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
 
 
@@ -19,7 +20,9 @@ const AddToy = () => {
             .then((response) => response.json())
             .then(data => {
                 console.log(data)
-                
+                if (data.insertedId) {
+                    toast.success('Toy added successfully!')
+                }
             })
     };
 
@@ -149,6 +152,7 @@ const AddToy = () => {
                     <input className="btn " value="Post Job" type="submit" />
                 </div>
             </form>
+            <Toaster />
         </div>
     );
 };

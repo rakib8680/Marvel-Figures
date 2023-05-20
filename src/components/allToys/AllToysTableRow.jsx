@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const AllToysTableRow = ({ toys, index }) => {
-    console.log(toys, index);
 
     const { name, pictureURL, quantity, price, sellerName, subCategory, _id } = toys || {};
 
@@ -33,10 +33,10 @@ const AllToysTableRow = ({ toys, index }) => {
             </td>
             <td>
                 {quantity}
-            </td>   
+            </td>
             <td>
-               <button className='btn btn-square btn-success btn-sm'><FaEye/></button>
-            </td>   
+                <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm'><FaEye /></Link>
+            </td>
         </tr>
     );
 };
