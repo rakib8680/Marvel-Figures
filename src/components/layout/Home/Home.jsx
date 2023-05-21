@@ -1,6 +1,7 @@
 import React from 'react';
 import Gallery from './Gallery';
 import './Home.css'
+import Tab from './Tab';
 
 
 
@@ -13,6 +14,7 @@ const Home = () => {
 
     return (
         <div>
+            {/* banner  */}
             <div className='background  mb-28 md:mb-0'>
                 <div className='container mx-auto'>
                     <div className=''>
@@ -26,11 +28,17 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* gallery  */}
             <div>
                 <h1 className='text-center text-3xl '>Gallery</h1>
                 <div className='divider md:w-1/3 w-3/4 mx-auto mb-10'></div>
                 <Gallery></Gallery>
                 <div className='divider  md:w-1/3 w-3/4 mx-auto' ></div>
+            </div>
+
+            {/* tab  */}
+            <div className='mt-20'>
+                <Tab></Tab>
             </div>
         </div>
     );

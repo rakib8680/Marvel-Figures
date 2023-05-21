@@ -12,7 +12,6 @@ const EditToys = () => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
 
         // post to db
         fetch(`http://localhost:5000/allToys/${_id}`, {
@@ -22,7 +21,6 @@ const EditToys = () => {
         })
             .then((response) => response.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     toast.success(`${name} updated successfully!`)
                 }
@@ -30,10 +28,10 @@ const EditToys = () => {
     };  
 
     return (
-        <div className='flex justify-center items-center md:h-screen login-bg  md:p-0 pt-[565px] pb-[560px] md:pb-0 md:pt-0'>
+        <div className='flex justify-center items-center md:h-screen login-bg   pt-[565px] pb-[560px] md:pb-0 md:pt-0 '>
             <form onSubmit={handleSubmit(onSubmit)} className="backdrop-blur-xl  shadow-2xl md:rounded px-11 md:px-14  pt-20  md:pt-14 pb-5 space-y-6  bg-white bg-opacity-10 ">
                 {errors.exampleRequired && <span>This field is required</span>}
-                <h1 className='text-center text-2xl font-semibold'>Update <span className='text-warning font-bold'>{name}</span> toy</h1>
+                <h1 className='text-center text-2xl font-semibold'>Update <span className='text-warning font-bold'>{name}</span> Details</h1>
                 <div className='divider w-1/3 mx-auto'></div>
                 <div className='inline-flex flex-col md:mr-5'>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
@@ -153,7 +151,7 @@ const EditToys = () => {
 
 
                 <div className='text-center py-5'>
-                    <input className="btn " value="Update Toy  " type="submit" />
+                    <input className="btn md:w-72" value="Update" type="submit" />
                 </div>
             </form>
             <Toaster />
