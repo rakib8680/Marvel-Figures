@@ -5,10 +5,11 @@ import MyToysTableRow from './MyToysTableRow';
 const MyToys = () => {
 
     const { user } = useContext(AuthContext)
-    const url = `https://marvel-figures-server.vercel.app/myToys?email=${user.email}`
-
+    
     const [myToys, setMyToys] = useState([])
-
+    const [filter, setFilter] = useState("")
+    
+    const url = `https://marvel-figures-server.vercel.app/myToys?email=${user.email}&text=${filter}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,9 +18,23 @@ const MyToys = () => {
             })
     }, [url])
 
+
+    const handleSort = (e) =>{
+        const text = e.target.value;
+        setFilter(text)
+    }
+
+
     return (
         <div className='pb-24 pt-10'>
             <h1 className='text-center pb-16 pt-10 text-2xl font-semibold'>Total Toys : {myToys.length}</h1>
+            <div className='text-end md:pr-24 mb-10'>
+                <select className="select select-bordered  max-w-xs " onChange={handleSort}>
+                    <option disabled selected>Sort By</option>
+                    <option>Price: Low To High</option>
+                    <option>Price: High To Low</option>
+                </select>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full ">
                     {/* head */}
