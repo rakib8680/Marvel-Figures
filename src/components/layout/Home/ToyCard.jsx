@@ -20,7 +20,7 @@ const ToyCard = ({ toy }) => {
                     </div>
                     <p>Quantity : {quantity} pieces</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/allToys/${_id}`} onClick={()=>toast.error('Please Login to view details')}  className="btn btn-neutral">View Details</Link>
+                        <Link to={`/allToys/${_id}`} onClick={()=>{user? "" : toast.error('Please Login first')}}  className="btn btn-neutral">View Details</Link>
                     </div>
                 </div>
             </div>

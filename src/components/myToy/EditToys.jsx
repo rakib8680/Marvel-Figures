@@ -4,12 +4,16 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
+import useTitle from '../../Hooks/useTitle';
 
 const EditToys = () => {
     const navigation = useNavigation()
     if (navigation.state === 'loading') {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
+
+    useTitle('Edit Toys')
+
     const toy = useLoaderData();
     const { name, pictureURL, quantity, price, description, rating, _id } = toy || {};
 

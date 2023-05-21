@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigation } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
 import FeaturedToy from './FeaturedToy';
 import Gallery from './Gallery';
 import './Home.css'
 import Tab from './Tab';
 import logo from '../../../assets/logo.jpg'
+import useTitle from '../../../Hooks/useTitle';
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
 
+    useTitle('Home')
 
 
     return (
@@ -31,7 +33,7 @@ const Home = () => {
                     </div>
                     <div className=' text-center md:mt-[480px] mt-[370px] backdrop-blur-md py-6 px-4 w-fit mx-auto bg-white  rounded-md  bg-opacity-5'>
                         <p>Step into a world of wonder and excitement as you explore our legendary collection of comic and movie-based Marvel characters. <br /> Discover the world of Marvel action figures at our online store. Start your collection today and embark on a <br /> thrilling adventure that will leave you  marveling at the power and <br /> craftsmanship of these legendary figures.</p>
-                        <button className='btn btn-secondary  mt-4'>Buy Now</button>
+                        <Link to='/allToys' className='btn bg-red-950 border border-accent  mt-4'>Buy Now</Link>
                     </div>
                 </div>
             </div>

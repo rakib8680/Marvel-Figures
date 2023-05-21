@@ -3,6 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaGithub, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
+import useTitle from '../../Hooks/useTitle';
 import { AuthContext } from '../provider/AuthProvider';
 import './Register.css'
 
@@ -13,6 +14,7 @@ const Register = () => {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
 
+    useTitle('Register')
     const navigate = useNavigate()
     const location = useLocation()
     // context api 

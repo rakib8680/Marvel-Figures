@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysTableRow from './MyToysTableRow';
 import { GridLoader } from 'react-spinners';
 import { useNavigation } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const MyToys = () => {
     const navigation = useNavigation()
@@ -12,6 +13,7 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext)
 
+    useTitle('My Toys')
     const [myToys, setMyToys] = useState([])
     const [filter, setFilter] = useState("")
 

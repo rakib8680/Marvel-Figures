@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const AllToysTableRow = ({ toys, index }) => {
+    const {user} =useContext(AuthContext)
 
     const { name, pictureURL, quantity, price, sellerName, subCategory, _id } = toys || {};
 
@@ -36,7 +38,7 @@ const AllToysTableRow = ({ toys, index }) => {
                 {quantity}pc
             </td>
             <td>
-                <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm tooltip-left tooltip flex tooltip-success'  data-tip="View Details" onClick={()=>toast.error('Please Login First')}><FaEye /></Link>
+                <Link to={`/allToys/${_id}`} className='btn btn-square btn-success btn-sm tooltip-left tooltip flex tooltip-success'  data-tip="View Details" onClick={()=>{user? "" : toast.error('Please Login first')}}><FaEye /></Link>
             </td>
             <Toaster/>
         </tr>

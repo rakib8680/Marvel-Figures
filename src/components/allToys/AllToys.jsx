@@ -3,12 +3,15 @@ import AllToysTableRow from './AllToysTableRow';
 import { useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { GridLoader } from 'react-spinners';
+import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
     const navigation = useNavigation()
     if (navigation.state === 'loading') {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
+
+    useTitle('AllToys')
     const url = "https://marvel-figures-server.vercel.app/allToys"
 
     const [toys, setToys] = useState([])

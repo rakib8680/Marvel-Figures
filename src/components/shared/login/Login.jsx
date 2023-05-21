@@ -5,6 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import './Login.css'
 import { GridLoader } from 'react-spinners';
+import useTitle from '../../../Hooks/useTitle';
 
 
 const Login = () => {
@@ -15,6 +16,7 @@ const Login = () => {
     }
     const navigate = useNavigate()
     const location = useLocation()
+    useTitle('Login')
     // context api 
     const { signInUser, user, handleGoogleSignIn } = useContext(AuthContext)
     // success  

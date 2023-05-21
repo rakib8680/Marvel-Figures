@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigation } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
+import useTitle from '../Hooks/useTitle';
 
 
 const Blog = () => {
@@ -9,6 +10,7 @@ const Blog = () => {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
 
+    useTitle('Blog')
 
     return (
         <div>

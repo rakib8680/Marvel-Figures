@@ -1,12 +1,15 @@
 import React from 'react';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const SingleToy = () => {
 
     const toy = useLoaderData()
     console.log(toy);
     const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, description, rating } = toy || {};
+
+    useTitle('Toy-Details')
 
     return (
         <div className='background pt-20 md:pt-28 mb-[450px]'>
