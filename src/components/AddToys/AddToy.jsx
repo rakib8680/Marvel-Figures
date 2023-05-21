@@ -6,7 +6,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 
 const AddToy = () => {
-    const navigate  = useNavigate()
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -103,7 +103,7 @@ const AddToy = () => {
                     </label>
                     <input
                         className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                        {...register("price")}
+                        {...register("price", { required: true, valueAsNumber: true })}
                         placeholder="Price"
                         type="text"
                     />

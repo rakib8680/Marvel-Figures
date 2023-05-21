@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBKjuS3mG_uzDL8z4dXZ_lBVnEmUdUHXTs",
-  authDomain: "marvel-figures.firebaseapp.com",
-  projectId: "marvel-figures",
-  storageBucket: "marvel-figures.appspot.com",
-  messagingSenderId: "57084893356",
-  appId: "1:57084893356:web:eab339b5ea296151f6e709"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
