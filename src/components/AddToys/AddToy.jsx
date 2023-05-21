@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigation } from 'react-router-dom';
+import { GridLoader } from 'react-spinners';
 import { AuthContext } from '../provider/AuthProvider';
 
 
 const AddToy = () => {
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
+    }
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();

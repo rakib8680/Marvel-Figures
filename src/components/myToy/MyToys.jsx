@@ -1,14 +1,20 @@
 import { AuthContext } from '../provider/AuthProvider';
 import React, { useContext, useEffect, useState } from 'react';
 import MyToysTableRow from './MyToysTableRow';
+import { GridLoader } from 'react-spinners';
+import { useNavigation } from 'react-router-dom';
 
 const MyToys = () => {
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
+    }
 
     const { user } = useContext(AuthContext)
-    
+
     const [myToys, setMyToys] = useState([])
     const [filter, setFilter] = useState("")
-    
+
     const url = `https://marvel-figures-server.vercel.app/myToys?email=${user.email}&text=${filter}`
     useEffect(() => {
         fetch(url)
@@ -19,7 +25,7 @@ const MyToys = () => {
     }, [url])
 
 
-    const handleSort = (e) =>{
+    const handleSort = (e) => {
         const text = e.target.value;
         setFilter(text)
     }

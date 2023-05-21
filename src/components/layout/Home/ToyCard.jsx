@@ -1,5 +1,5 @@
 import React from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -24,6 +24,7 @@ const ToyCard = ({ toy }) => {
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 };

@@ -10,7 +10,7 @@ import './Register.css'
 const Register = () => {
     const navigation = useNavigation()
     if (navigation.state === 'loading') {
-        return <div className='flex justify-center h-[80vh] items-center bg-primary'><GridLoader color="#e3ed4c" size={60} /></div>
+        return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
 
     const navigate = useNavigate()

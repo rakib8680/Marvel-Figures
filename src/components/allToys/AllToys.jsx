@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AllToysTableRow from './AllToysTableRow';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { GridLoader } from 'react-spinners';
 
 const AllToys = () => {
-    const navigate = useNavigate()
-    const { user } = useContext(AuthContext)
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
+    }
     const url = "https://marvel-figures-server.vercel.app/allToys"
 
     const [toys, setToys] = useState([])
@@ -30,7 +33,7 @@ const AllToys = () => {
                     <thead >
                         <tr >
                             <th>
-                                
+
                             </th>
                             <th ></th>
                             <th className='text-base text-warning'>Photo</th>
