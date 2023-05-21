@@ -18,10 +18,14 @@ const Gallery = () => {
         "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643639144-spiderman-1643639136.jpg?crop=1xw:1xh;center,top&resize=980:*",     
         "https://cdn11.bigcommerce.com/s-csqcv5l47s/images/stencil/1280x1280/products/2061/4550/RGB_9589__68568.1679318494.jpg?c=1?imbypass=on",    
         "https://cdn11.bigcommerce.com/s-csqcv5l47s/images/stencil/804x804/products/2270/5115/Marvel_Skrull_AF_01__53431.1678236916.jpg?c=1",
-        
-        "",
+        "https://m.media-amazon.com/images/I/71g85a04ieL._SL1500_.jpg",
         "https://www.blacksbricks.de/images/product_images/original_images/shfnebula81.jpg",    
         "https://cf.shopee.ph/file/792e926aecbdd281477e6f90c4a787cc",
+        "https://cdn.shopify.com/s/files/1/0169/6995/7440/products/E5795_Marvel_80th_Anniversary_Hulk_Action_Figure_01.jpg?v=1568739416",
+        "", 
+        "https://m.media-amazon.com/images/I/719yzPEASHL._AC_SL1500_.jpg",
+        "https://media.printables.com/media/prints/296380/images/2598265_93db2ce7-5e56-4cb0-aeb6-d3d091ca3377/thumbs/inside/1280x960/jpg/avengers-endgame-thanos-display-base_00a.webp",
+
 
     ]
     return (
