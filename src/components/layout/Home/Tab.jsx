@@ -19,8 +19,8 @@ const Tab = () => {
     }, [activeTab])
 
     return (
-        <div>
-            <h1 className='text-center' >Shop by Category</h1>
+        <div className='bg-gradient-to-b from-black via-red-950 to-black '>
+            <h1 className='text-center text-3xl' >Shop by Category</h1>
             <div className='flex justify-center mt-10'>
                 <div className="tabs">
                     <a className={`tab tab-lg tab-lifted ${activeTab == "guardians" ? "tab-active transition-all duration-500 " : ""}`}
@@ -39,7 +39,7 @@ const Tab = () => {
             </div>
 
             {/* toy cards  */}
-            <div className='md:grid grid-cols-3 container mx-auto'>
+            <div className='md:grid grid-cols-3 container mx-auto mt-12 '>
                 {
                     toys.slice(0,3).map((toy => <ToyCard toy={toy} key={toy._id} ></ToyCard>))
                 }
