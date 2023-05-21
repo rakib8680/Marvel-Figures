@@ -1,3 +1,5 @@
+import aos from 'aos';
+import 'aos/dist/aos.css';
 import React, { useEffect, useState } from 'react';
 import ToyCard from './ToyCard';
 
@@ -5,6 +7,10 @@ const Tab = () => {
 
     const [activeTab, setActiveTab] = useState("avengers")
     const [toys, setToys] = useState([])
+
+    useEffect(()=>{
+        aos.init()
+    },[]);
 
     const handleTabClick = category => {
         setActiveTab(category)
@@ -39,7 +45,7 @@ const Tab = () => {
             </div>
 
             {/* toy cards  */}
-            <div className='md:grid grid-cols-3 container mx-auto mt-12 '>
+            <div className='md:grid grid-cols-3 container mx-auto mt-12 ' data-aos="fade-right">
                 {
                     toys.slice(0,3).map((toy => <ToyCard toy={toy} key={toy._id} ></ToyCard>))
                 }

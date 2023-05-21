@@ -1,7 +1,12 @@
-import React from 'react';
+import aos from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect } from 'react';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 const Gallery = () => {
+    useEffect(()=>{
+        aos.init()
+    },[]);
 
     const images = [
         "https://cdn11.bigcommerce.com/s-csqcv5l47s/images/stencil/804x804/products/2407/5538/CAP_AMERICA_SELECT_2__99284.1681745340.jpg?c=1",
@@ -20,7 +25,7 @@ const Gallery = () => {
 
     ]
     return (
-        <div className='md:w-4/6 mx-auto '>
+        <div className='md:w-4/6 mx-auto ' data-aos="zoom-in-up">
             <ResponsiveMasonry columnsCountBreakPoints={{ 350: 4, 750: 4, 900: 4 }} >
                 <Masonry columnsCount={3} gutter="10px">
                     {images.map((image, i) => (

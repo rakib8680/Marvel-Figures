@@ -13,10 +13,12 @@ import useTitle from '../../../Hooks/useTitle';
 
 const Home = () => {
 
+
     const navigation = useNavigation()
     if (navigation.state === 'loading') {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
+    
 
     useTitle('Home')
 
