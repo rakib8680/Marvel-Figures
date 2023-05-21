@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <SingleToy></SingleToy>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
+        loader: ({ params }) => fetch(`https://marvel-figures-server.vercel.app/allToys/${params.id}`)
       },
       {
         path: 'addToy',
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: 'editToy/:id',
         element: <EditToys></EditToys>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
+        loader: ({ params }) => fetch(`https://marvel-figures-server.vercel.app/allToys/${params.id}`)
       }
     ]
   }

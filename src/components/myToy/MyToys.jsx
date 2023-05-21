@@ -5,7 +5,7 @@ import MyToysTableRow from './MyToysTableRow';
 const MyToys = () => {
 
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/myToys?email=${user.email}`
+    const url = `https://marvel-figures-server.vercel.app/myToys?email=${user.email}`
 
     const [myToys, setMyToys] = useState([])
 

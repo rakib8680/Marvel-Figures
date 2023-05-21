@@ -17,7 +17,6 @@ const Home = () => {
         return <div className='flex justify-center h-[80vh] items-center bg-secondary'><GridLoader color="#be0003" size={25} /></div>
     }
 
-    console.log(navigation.state)
 
 
     return (
@@ -60,16 +59,44 @@ const Home = () => {
                 </div>
                 <div className='divider md:divider-horizontal md:h-80  md:my-auto w-3/4   mx-auto md:w-auto'></div>
                 <div className='text-center'>
-                    <img src={logo}  />
+                    <img src={logo} />
                     <h1 className='text-5xl font-black bg-red-950 pt-1 pb-3'>Marvel  Figures</h1>
-                </div>  
+                </div>
             </div>
 
             {/* featured toys  */}
-            <div className='container mx-auto '>
+            <div className=' mt-20 md:pt-16 pt-24 pb-24 bg-gradient-to-r from-black via-secondary to-black'>
                 <h1 className='text-center text-3xl  md:my-10'>Our Featured Toys</h1>
                 <div className='divider md:w-1/3 w-3/4 mx-auto mb-10'></div>
-                <FeaturedToy></FeaturedToy>
+                <div className=''>
+                    <div>
+                        <FeaturedToy></FeaturedToy>
+                    </div>
+                    <div className='container mx-auto px-5 pt-10  md:p-0'>
+                        <div>
+                            <h1 className='text-3xl text-warning'>#1 Thor</h1>
+                            <div className='divider w-32 my-0'></div>
+                            <p className='mb-5'>Thor is a fictional character from Marvel Comics, known as the god of thunder. He is a superhero and a member of the Avengers. Thor is based on the Norse mythology deity of the same name.In the Marvel Cinematic Universe (MCU), Thor is portrayed by actor Chris Hemsworth. He first appeared in the film "Thor" released in 2011 and has since appeared in multiple MCU movies, including "The Avengers" series, "Thor: The Dark World," "Thor: Ragnarok,"</p>
+                        </div>
+                        <div>
+                            <h1 className='text-3xl text-warning'>#2 Nebula</h1>
+                            <div className='divider w-32 my-0'></div>
+                            <p className='mb-5'>Nebula is a fictional character from Marvel Comics and the Marvel Cinematic Universe (MCU). She is known as a cyborg and an antagonist-turned-heroine in the Guardians of the Galaxy series.
+                                In the MCU, Nebula is portrayed by actress Karen Gillan. She first appeared in the film "Guardians of the Galaxy" released in 2014 and has since appeared in "Guardians of the Galaxy Vol. 2," "Avengers: Infinity War," "Avengers: Endgame," and "Guardians of the Galaxy Vol. 3" (upcoming as of my knowledge cutoff in September 2021).</p>
+                        </div>
+                        <div>
+                            <h1 className='text-3xl text-warning'>#3 Star Lord</h1>
+                            <div className='divider w-32 my-0'></div>
+                            <p className='mb-5'>Star-Lord is a fictional character from Marvel Comics and a prominent member of the Guardians of the Galaxy. In the Marvel Cinematic Universe (MCU), Star-Lord is portrayed by actor Chris Pratt.
+                                Peter Quill, also known as Star-Lord, made his first appearance in the film "Guardians of the Galaxy" released in 2014. He has since appeared in "Guardians of the Galaxy Vol. 2," "Avengers: Infinity War," "Avengers: Endgame," and "Guardians of the Galaxy Vol. 3" (upcoming as of my knowledge cutoff in September 2021).</p>
+                        </div>
+                        <div>
+                            <h1 className='text-3xl text-warning'>#4 Ben Grimm</h1>
+                            <div className='divider w-32 my-0'></div>
+                            <p className=''>In the comics, Ben Grimm was an astronaut who, along with Reed Richards (Mr. Fantastic), Sue Storm (Invisible Woman), and Johnny Storm (Human Torch), was exposed to cosmic rays during a space mission. The radiation transformed him into a creature with a rock-like appearance and superhuman strength. As The Thing, Ben possesses incredible durability, endurance, and resistance to injury.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

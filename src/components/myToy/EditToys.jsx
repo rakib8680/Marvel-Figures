@@ -14,7 +14,7 @@ const EditToys = () => {
     const onSubmit = data => {
 
         // post to db
-        fetch(`http://localhost:5000/allToys/${_id}`, {
+        fetch(`https://marvel-figures-server.vercel.app/allToys/${_id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

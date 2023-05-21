@@ -24,7 +24,7 @@ const MyToysTableRow = ({toy,index, myToys, setMyToys}) => {
             .then(result => {
                 console.log(result);
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/allToys/${_id}`, {
+                    fetch(`https://marvel-figures-server.vercel.app/allToys/${_id}`, {
                         method: 'DELETE',
                         headers: { 'Content-Type': 'application/json' },
                     })

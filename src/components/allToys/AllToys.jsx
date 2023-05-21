@@ -6,7 +6,7 @@ import { AuthContext } from '../provider/AuthProvider';
 const AllToys = () => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
-    const url = "http://localhost:5000/allToys"
+    const url = "https://marvel-figures-server.vercel.app/allToys"
 
     const [toys, setToys] = useState([])
 

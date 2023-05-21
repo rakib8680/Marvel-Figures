@@ -11,7 +11,7 @@ const Tab = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/targetToys/${activeTab}`)
+        fetch(`https://marvel-figures-server.vercel.app/targetToys/${activeTab}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)

@@ -13,7 +13,7 @@ const AddToy = () => {
         console.log(data);
 
         // post to db
-        fetch('http://localhost:5000/allToys', {
+        fetch('https://marvel-figures-server.vercel.app/allToys', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
