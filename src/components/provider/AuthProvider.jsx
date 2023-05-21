@@ -28,12 +28,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     }
 
-    // // github sign in 
-    // const githubProvider = new GithubAuthProvider()
-    // const handleGithubSignIn = () => {
-    //     setLoading(true);
-    //     return signInWithPopup(auth, githubProvider)
-    // };
+
 
 
     // // register with email and pass 
@@ -80,7 +75,6 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         handleGoogleSignIn,
-        // handleGithubSignIn,
         logOut,
         registerUser,
         signInUser,

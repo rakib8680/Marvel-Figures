@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const EditToys = () => {
     const toy = useLoaderData();
-    const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, description, rating,_id } = toy || {};
+    const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, description, rating, _id } = toy || {};
 
-
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -23,9 +23,10 @@ const EditToys = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success(`${name} updated successfully!`)
+                    navigate('/myToys')
                 }
             })
-    };  
+    };
 
     return (
         <div className='flex justify-center items-center md:h-screen login-bg   pt-[565px] pb-[560px] md:pb-0 md:pt-0 '>
@@ -68,8 +69,8 @@ const EditToys = () => {
                     </select>
                 </div>
 
-
                 <br />
+
 
                 <div className='inline-flex flex-col md:mr-5'>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
@@ -84,20 +85,9 @@ const EditToys = () => {
                     />
                 </div>
 
-                <div className='inline-flex flex-col md:mr-5'>
-                    <label className=" font-bold mb-1 text-lg" htmlFor="email">
-                        Seller Email
-                    </label>
-                    <input
-                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
-                        {...register("sellerEmail")}
-                        placeholder="seller email"
-                        type="email"
-                        defaultValue={user?.email}
-                    />
-                </div>
 
-                <div className='inline-flex flex-col'>
+
+                <div className='inline-flex flex-col md:mr-5'>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Price
                     </label>
@@ -109,10 +99,7 @@ const EditToys = () => {
                     />
                 </div>
 
-
-                <br />
-
-                <div className='inline-flex flex-col md:mr-5'>
+                <div className='inline-flex flex-col '>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Ratings
                     </label>
@@ -123,6 +110,9 @@ const EditToys = () => {
                         type="text"
                     />
                 </div>
+
+                <br />
+
 
                 <div className='inline-flex flex-col md:mr-5'>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
@@ -136,12 +126,12 @@ const EditToys = () => {
                     />
                 </div>
 
-                <div className='inline-flex flex-col'>
+                <div className='inline-flex flex-col '>
                     <label className=" font-bold mb-1 text-lg" htmlFor="email">
                         Descriptions
                     </label>
                     <input
-                        className="text-input shadow  border rounded py-2 px-3 md:w-[400px] w-[302px] text-primary leading-tight bg-red-900"
+                        className="text-input shadow  border rounded py-2 px-3 md:w-[820px] w-[302px] text-primary leading-tight bg-red-900"
                         {...register("description")}
                         defaultValue={description}
                     />
@@ -151,8 +141,12 @@ const EditToys = () => {
 
 
                 <div className='text-center py-5'>
+                    <Link className='text-center btn btn-error btn-outline md:w-72' to="/myToys" >
+                        Cancel
+                    </Link>
                     <input className="btn md:w-72" value="Update" type="submit" />
                 </div>
+
             </form>
             <Toaster />
         </div>

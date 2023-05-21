@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 
 const AddToy = () => {
-
+    const navigate  = useNavigate()
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -22,6 +23,7 @@ const AddToy = () => {
                 console.log(data)
                 if (data.insertedId) {
                     toast.success('Toy added successfully!')
+                    navigate('/myToys')
                 }
             })
     };

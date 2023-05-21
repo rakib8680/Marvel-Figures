@@ -9,7 +9,7 @@ const SingleToy = () => {
     const { name, pictureURL, quantity, price, sellerName, sellerEmail, subCategory, description, rating } = toy || {};
 
     return (
-        <div className='background pt-20 md:pt-28 mb-96'>
+        <div className='background pt-20 md:pt-28 mb-[450px]'>
             <div className="card lg:card-side backdrop-blur-md bg-white bg-opacity-10 shadow-2xl md:w-4/6   mx-auto md:h-[600px] p-5 md:p-0 rounded-none md:rounded-xl ">
                 <figure>
                     <img src={pictureURL} className="w-full md:w-[600px] rounded-lg md:rounded-none" />

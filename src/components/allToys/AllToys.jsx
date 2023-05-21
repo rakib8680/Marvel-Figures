@@ -22,9 +22,9 @@ const AllToys = () => {
 
 
     return (
-        <div>
+        <div className=''>
             <h1 className='text-center pb-16 pt-10 text-2xl font-semibold'>Total Toys : {toys.length}</h1>
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full ">
                 <table className="table w-full ">
                     {/* head */}
                     <thead >
